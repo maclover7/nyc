@@ -6,7 +6,7 @@ describe "App" do
   end
 
   it "handles GET to '/'" do
-    get '/'
+    get "/"
     expect(last_response).to be_ok
   end
 
