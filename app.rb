@@ -10,7 +10,6 @@ Dir.glob(File.join("helpers", "**", "*.rb")).each do |helper|
 end
 
 MTA_SUBWAY_LINES = ["ACE", "BDFM", "G", "JZ", "L", "NQR", "S", "123", "456", "7"].to_a
-MTA_LIRR_LINES = ["Far Rockaway", "Babylon"].to_a
 
 get "/" do
   feed = Nokogiri::XML.parse(HTTParty.get("http://web.mta.info/status/serviceStatus.txt"))
@@ -34,15 +33,20 @@ get "/" do
     {name: line, status: status_as_class(status)}
   end
 
-  @subway_line_statuses = MTA_SUBWAY_LINES.collect do |lines|
+  @subway_statuses = MTA_SUBWAY_LINES.collect do |lines|
     lines.split(//).map do |line|
       line_status(line, lines, feed)
     end
   end.flatten
 
+  @mnr_statuses = [
+    {:name=>"Hudson", :status=> "#{status_as_class((feed.xpath('//status')[41]).to_s[8...-9])}"},
+    {:name=>"Harlem", :status=> "#{status_as_class((feed.xpath('//status')[42]).to_s[8...-9])}"},
+    {:name=>"New Haven", :status=> "#{status_as_class((feed.xpath('//status')[44]).to_s[8...-9])}"},
+  ]
+
   @lirr_statuses = [
     {:name=>"Babylon", :status=> "#{status_as_class((feed.xpath('//status')[30]).to_s[8...-9])}"},
-    {:name=>"City Terminal", :status=> "#{status_as_class((feed.xpath('//status')[31]).to_s[8...-9])}"},
     {:name=>"Far Rockaway", :status=> "#{status_as_class((feed.xpath('//status')[32]).to_s[8...-9])}"},
     {:name=>"Hempstead", :status=> "#{status_as_class((feed.xpath('//status')[33]).to_s[8...-9])}"},
     {:name=>"Long Beach", :status=> "#{status_as_class((feed.xpath('//status')[34]).to_s[8...-9])}"},

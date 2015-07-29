@@ -4,9 +4,20 @@
   <div class="col-md-6">
     <div id="main">
       <h3 class="service-heading">Subway:</h3>
-      <% @subway_line_statuses.each do |line| %>
+      <% @subway_statuses.each do |line| %>
         <div class="box">
           <div id="<%=line[:status]%>" class="nyc-nyct-bullet nyc-nyct-<%=line[:name].downcase%>"> <%=line[:name]%> </div>
+        </div>
+      <% end %>
+    </div>
+
+    <hr>
+
+    <div class="main">
+      <h3 class="service-heading">Metro-North:</h3>
+      <% @mnr_statuses.each do |line| %>
+        <div class="box">
+          <div id="<%=line[:status]%>" class="nyc-mnr-bullet nyc-metro-north-<%=line[:name].gsub(/[^a-z0-9\-_]+/i, "-").downcase%>"> <%=line[:name]%> </div>
         </div>
       <% end %>
     </div>

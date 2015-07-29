@@ -93,11 +93,23 @@ span.nyc-nyct-bullet { display: inline-block; }
 .nyc-metro-north-harlem  { background-color: #0039A6; }
 .nyc-metro-north-hudson  { background-color: #009B3A; }
 .nyc-metro-north-new-haven  { background-color: #E00034; }
-.nyc-metro-north-pascack-valley  { background-color: #923D97; }
-.nyc-metro-north-port-jervis  { background-color: #FF7900; }
-.nyc-mta-ez-pass { background-color: #6E267B; }
 
 .nyc-lirr-bullet {
+  font-family: Helvetica, sans-serif;
+  width: 9em;
+  height: 1em;
+  font-size: 1em;
+  line-height: 1em;
+  padding: 0.25em;
+  text-align: center;
+  font-weight: bold;
+  color: #FFF;
+  -webkit-border-radius: 999px;
+  -moz-border-radius: 999px;
+  border-radius: 999px;
+}
+
+.nyc-mnr-bullet {
   font-family: Helvetica, sans-serif;
   width: 9em;
   height: 1em;
