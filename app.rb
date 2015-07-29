@@ -21,6 +21,7 @@ get "/" do
     when 'delays' then 'delays'
     when 'service change' then 'delays'
     when 'planned work' then 'delays'
+    when 'suspended' then 'delays'
     else 'offline'
     end
   end

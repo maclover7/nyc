@@ -1,3 +1,4 @@
+/* GLOBAL CSS */
 body {
   font-family: 'Helvetica', 'Arial', sans-serif;
 }
@@ -20,7 +21,53 @@ body {
   }
 }
 
-.mta-lirr-bullet {
+/* NEW YORK CITY MTA CSS */
+
+.nyc-nyct-bullet {
+	font-family: Helvetica, sans-serif;
+	width:  1em;
+	height: 1em;
+	font-size: 1em;
+	line-height: 1em;
+	padding: 0.25em;
+	text-align: center;
+	font-weight: bold;
+	color: #FFF;
+	-webkit-border-radius: 999px;
+	-moz-border-radius: 999px;
+	border-radius: 999px;
+	behavior: url(css/PIE.htc); // For IE. See http://css3pie.com/
+}
+span.nyc-nyct-bullet { display: inline-block; }
+.nyc-nyct-a, .nyc-nyct-c, .nyc-nyct-e { background-color: #2850AD; }
+.nyc-nyct-b, .nyc-nyct-d, .nyc-nyct-f, .nyc-nyct-m { background-color: #FF6319; }
+.nyc-nyct-g { background-color: #6CBE45; }
+.nyc-nyct-j, .nyc-nyct-z { background-color: #996633; }
+.nyc-nyct-l { background-color: #A7A9AC; }
+.nyc-nyct-n, .nyc-nyct-q, .nyc-nyct-r { background-color: #FCCC0A; color: #333; }
+.nyc-nyct-s { background-color: #808183; }
+.nyc-nyct-1, .nyc-nyct-2, .nyc-nyct-3{ background-color: #EE352E; }
+.nyc-nyct-4, .nyc-nyct-5, .nyc-nyct-6 { background-color: #00933C; }
+.nyc-nyct-7 { background-color: #B933AD; }
+.nyc-lirr-babylon  { background-color: #00985F; }
+.nyc-lirr-city-terminal { background-color: #4D5357; }
+.nyc-lirr-far-rockaway  { background-color: #6E3219; }
+.nyc-lirr-hempstead  { background-color: #CE8E00; }
+.nyc-lirr-long-beach  { background-color: #FF6319; }
+.nyc-lirr-montauk  { background-color: #006983; }
+.nyc-lirr-oyster-bay  { background-color: #00AF3F; }
+.nyc-lirr-port-jefferson  { background-color: #0039A6; }
+.nyc-lirr-port-washington  { background-color: #C60C30; }
+.nyc-lirr-ronkonkoma  { background-color: #A626AA; }
+.nyc-lirr-west-hempstead  { background-color: #00A1DE; }
+.nyc-metro-north-harlem  { background-color: #0039A6; }
+.nyc-metro-north-hudson  { background-color: #009B3A; }
+.nyc-metro-north-new-haven  { background-color: #E00034; }
+.nyc-metro-north-pascack-valley  { background-color: #923D97; }
+.nyc-metro-north-port-jervis  { background-color: #FF7900; }
+.nyc-mta-ez-pass { background-color: #6E267B; }
+
+.nyc-lirr-bullet {
   font-family: Helvetica, sans-serif;
   width: 9em;
   height: 1em;
@@ -33,5 +80,4 @@ body {
   -webkit-border-radius: 999px;
   -moz-border-radius: 999px;
   border-radius: 999px;
-  behavior: url(css/PIE.htc);
 }
