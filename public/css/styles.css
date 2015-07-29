@@ -23,6 +23,11 @@ h1 {
 	padding: 0.1em;
 }
 
+.service-heading {
+  font-weight: bold;
+  text-align: center;
+}
+
 @media screen and (max-width: 750px) {
 	#main { font-size: 40px; }
 }
