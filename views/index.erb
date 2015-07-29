@@ -1,17 +1,7 @@
 <h1>NYC Board</h1>
 
 <div id="main">
-  <% @letter_line_statuses.each do |line| %>
-    <div class="box">
-      <div id="<%=line[:status]%>" class="mta-bullet mta-<%=line[:name].downcase%>"> <%=line[:name]%> </div>
-    </div>
-  <% end %>
-</div>
-
-<br>
-
-<div id="main">
-  <% @number_line_statuses.each do |line| %>
+  <% @subway_line_statuses.each do |line| %>
     <div class="box">
       <div id="<%=line[:status]%>" class="mta-bullet mta-<%=line[:name].downcase%>"> <%=line[:name]%> </div>
     </div>
@@ -19,3 +9,11 @@
 </div>
 
 <hr>
+
+<div id="main">
+  <% @lirr_statuses.each do |line| %>
+    <div class="box">
+      <div id="<%=line[:status]%>" class="mta-lirr-bullet lirr-<%=line[:name].gsub(/[^a-z0-9\-_]+/i, "-").downcase%>"> <%=line[:name]%> </div>
+    </div>
+  <% end %>
+</div>
