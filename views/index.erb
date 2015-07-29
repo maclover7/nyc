@@ -1,19 +1,24 @@
 <h1>NYC Board</h1>
+<div class="row">
 
-<div id="main">
-  <% @subway_line_statuses.each do |line| %>
-    <div class="box">
-      <div id="<%=line[:status]%>" class="nyc-nyct-bullet nyc-nyct-<%=line[:name].downcase%>"> <%=line[:name]%> </div>
+  <div class="col-md-6">
+    <div id="main">
+      <% @subway_line_statuses.each do |line| %>
+        <div class="box">
+          <div id="<%=line[:status]%>" class="nyc-nyct-bullet nyc-nyct-<%=line[:name].downcase%>"> <%=line[:name]%> </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
+  </div>
 
-<hr>
-
-<div id="main">
-  <% @lirr_statuses.each do |line| %>
-    <div class="box">
-      <div id="<%=line[:status]%>" class="nyc-lirr-bullet nyc-lirr-<%=line[:name].gsub(/[^a-z0-9\-_]+/i, "-").downcase%>"> <%=line[:name]%> </div>
+  <div class="col-md-6">
+    <div id="main">
+      <% @lirr_statuses.each do |line| %>
+        <div class="box">
+          <div id="<%=line[:status]%>" class="nyc-lirr-bullet nyc-lirr-<%=line[:name].gsub(/[^a-z0-9\-_]+/i, "-").downcase%>"> <%=line[:name]%> </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+
 </div>
