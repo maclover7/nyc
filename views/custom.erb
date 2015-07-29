@@ -1,0 +1,9 @@
+<h1><%=@service_heading%>: MTA Service Status</h1>
+
+<div id="main">
+  <% @custom_statuses.each do |line| %>
+    <div class="box">
+      <div id="<%=line[:status]%>" class="nyc-<%=@service_prefix%>-bullet nyc-<%=@service_prefix%>-<%=line[:name].gsub(/[^a-z0-9\-_]+/i, "-").downcase%>"> <%=line[:name]%> </div>
+    </div>
+  <% end %>
+</div>

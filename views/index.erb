@@ -17,7 +17,7 @@
       <h3 class="service-heading">Metro-North:</h3>
       <% @mnr_statuses.each do |line| %>
         <div class="box">
-          <div id="<%=line[:status]%>" class="nyc-mnr-bullet nyc-metro-north-<%=line[:name].gsub(/[^a-z0-9\-_]+/i, "-").downcase%>"> <%=line[:name]%> </div>
+          <div id="<%=line[:status]%>" class="nyc-metro-north-bullet nyc-metro-north-<%=line[:name].gsub(/[^a-z0-9\-_]+/i, "-").downcase%>"> <%=line[:name]%> </div>
         </div>
       <% end %>
     </div>
