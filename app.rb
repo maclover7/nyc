@@ -21,25 +21,6 @@ MTA_SUBWAY_LINES = ["ACE", "BDFM", "G", "JZ", "L", "NQR", "S", "123", "456", "7"
 get "/" do
   feed = Nokogiri::XML.parse(HTTParty.get("http://web.mta.info/status/serviceStatus.txt"))
 
-  def status_as_class(description)
-    case description.downcase
-    when 'good service' then 'online'
-    when 'delays' then 'delays'
-    when 'service change' then 'delays'
-    when 'planned work' then 'delays'
-    when 'suspended' then 'delays'
-    else 'offline'
-    end
-  end
-
-  def line_status(line, in_lines, feed)
-    line_status = feed
-      .css("line:contains(#{in_lines})")
-      .find {|line| line.css('name').text.chomp == in_lines}
-    status = line_status.css('status').text.chomp
-    {name: line, status: status_as_class(status)}
-  end
-
   @subway_statuses = MTA_SUBWAY_LINES.collect do |lines|
     lines.split(//).map do |line|
       line_status(line, lines, feed)
@@ -70,25 +51,6 @@ end
 
 get '/:service' do
   feed = Nokogiri::XML.parse(HTTParty.get("http://web.mta.info/status/serviceStatus.txt"))
-  def status_as_class(description)
-    case description.downcase
-    when 'good service' then 'online'
-    when 'delays' then 'delays'
-    when 'service change' then 'delays'
-    when 'planned work' then 'delays'
-    when 'suspended' then 'delays'
-    else 'offline'
-    end
-  end
-
-  def line_status(line, in_lines, feed)
-    line_status = feed
-      .css("line:contains(#{in_lines})")
-      .find {|line| line.css('name').text.chomp == in_lines}
-    status = line_status.css('status').text.chomp
-    {name: line, status: status_as_class(status)}
-  end
-
 
   SERVICES = ["subway", "lirr", "mnr"].to_a
   if SERVICES.include?(params[:service])
