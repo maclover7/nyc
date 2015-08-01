@@ -4,6 +4,13 @@ require "nokogiri"
 require "httparty"
 require "pry" if development?
 require "sinatra/reloader" if development?
+require "sequel"
+
+DB = Sequel.connect(ENV["DATABASE_URL"] || "postgres:///nyc_development")
+
+Dir.glob(File.join("models", "**", "*.rb")).each do |model|
+  require_relative model
+end
 
 Dir.glob(File.join("helpers", "**", "*.rb")).each do |helper|
   require_relative helper

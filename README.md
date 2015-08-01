@@ -4,9 +4,17 @@ TODO: Project description.
 
 ## Getting Started
 
+```
+bundle install
+psql | CREATE DATABASE nyc_development
+rake db:setup
+```
+
 ### Starting the Server
 
-### Project Layout
+```
+rackup
+```
 
 ## Notes / Use
 
