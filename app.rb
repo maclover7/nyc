@@ -51,12 +51,11 @@ end
 
 get '/:service' do
   feed = Nokogiri::XML.parse(HTTParty.get("http://web.mta.info/status/serviceStatus.txt"))
+  service = params[:service].downcase
 
-  SERVICES = ["subway", "lirr", "mnr"].to_a
-  if SERVICES.include?(params[:service])
-    puts "#{params[:service]}"
-    if params[:service] == "subway"
-      @service_heading = "Subway"
+  if DB[:services].where(name: service)
+    if service == "subway"
+      @service_heading = service.capitalize
       @service_prefix = "nyct"
       @custom_statuses = MTA_SUBWAY_LINES.collect do |lines|
         lines.split(//).map do |line|
@@ -64,9 +63,9 @@ get '/:service' do
         end
       end.flatten
 
-    elsif params[:service] == "lirr"
-      @service_heading = "LIRR"
-      @service_prefix = "lirr"
+    elsif service == "lirr"
+      @service_heading = service.upcase
+      @service_prefix = service
       @custom_statuses = [
         {:name=>"Babylon", :status=> "#{status_as_class((feed.xpath('//status')[30]).to_s[8...-9])}"},
         {:name=>"Far Rockaway", :status=> "#{status_as_class((feed.xpath('//status')[32]).to_s[8...-9])}"},
@@ -80,9 +79,9 @@ get '/:service' do
         {:name=>"W Hempstead", :status=> "#{status_as_class((feed.xpath('//status')[40]).to_s[8...-9])}"}
       ]
 
-    elsif params[:service] == "mnr"
+    elsif service == "mnr"
       @service_heading = "Metro-North"
-      @service_prefix = "metro-north"
+      @service_prefix = @service_heading.downcase
       @custom_statuses = [
         {:name=>"Hudson", :status=> "#{status_as_class((feed.xpath('//status')[41]).to_s[8...-9])}"},
         {:name=>"Harlem", :status=> "#{status_as_class((feed.xpath('//status')[42]).to_s[8...-9])}"},
