@@ -7,7 +7,10 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
   <script type="text/javascript" src="js/app.js"></script>
-  <meta http-equiv="refresh" content="15">
+  <% if ENV["RACK_ENV"] != "development" %>
+    <meta http-equiv="refresh" content="15">
+  <% end %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
   <div class="container">

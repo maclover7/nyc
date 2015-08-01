@@ -66,7 +66,6 @@ h1 {
 	-webkit-border-radius: 999px;
 	-moz-border-radius: 999px;
 	border-radius: 999px;
-	behavior: url(css/PIE.htc); // For IE. See http://css3pie.com/
 }
 span.nyc-nyct-bullet { display: inline-block; }
 .nyc-nyct-a, .nyc-nyct-c, .nyc-nyct-e { background-color: #2850AD; }
@@ -86,17 +85,17 @@ span.nyc-nyct-bullet { display: inline-block; }
 .nyc-lirr-long-beach  { background-color: #FF6319; }
 .nyc-lirr-montauk  { background-color: #006983; }
 .nyc-lirr-oyster-bay  { background-color: #00AF3F; }
-.nyc-lirr-port-jefferson  { background-color: #0039A6; }
-.nyc-lirr-port-washington  { background-color: #C60C30; }
+.nyc-lirr-pt-jefferson  { background-color: #0039A6; }
+.nyc-lirr-pt-washington  { background-color: #C60C30; }
 .nyc-lirr-ronkonkoma  { background-color: #A626AA; }
-.nyc-lirr-west-hempstead  { background-color: #00A1DE; }
+.nyc-lirr-w-hempstead  { background-color: #00A1DE; }
 .nyc-metro-north-harlem  { background-color: #0039A6; }
 .nyc-metro-north-hudson  { background-color: #009B3A; }
 .nyc-metro-north-new-haven  { background-color: #E00034; }
 
 .nyc-lirr-bullet {
   font-family: Helvetica, sans-serif;
-  width: 9em;
+  width: 7.5em;
   height: 1em;
   font-size: 1em;
   line-height: 1em;
@@ -109,9 +108,13 @@ span.nyc-nyct-bullet { display: inline-block; }
   border-radius: 999px;
 }
 
+.text {
+  padding-left: 10px;
+}
+
 .nyc-metro-north-bullet {
   font-family: Helvetica, sans-serif;
-  width: 9em;
+  width: 6em;
   height: 1em;
   font-size: 1em;
   line-height: 1em;

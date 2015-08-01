@@ -52,10 +52,10 @@ get "/" do
     {:name=>"Long Beach", :status=> "#{status_as_class((feed.xpath('//status')[34]).to_s[8...-9])}"},
     {:name=>"Montauk", :status=> "#{status_as_class((feed.xpath('//status')[35]).to_s[8...-9])}"},
     {:name=>"Oyster Bay", :status=> "#{status_as_class((feed.xpath('//status')[36]).to_s[8...-9])}"},
-    {:name=>"Port Jefferson", :status=> "#{status_as_class((feed.xpath('//status')[37]).to_s[8...-9])}"},
-    {:name=>"Port Washington", :status=> "#{status_as_class((feed.xpath('//status')[38]).to_s[8...-9])}"},
+    {:name=>"Pt Jefferson", :status=> "#{status_as_class((feed.xpath('//status')[37]).to_s[8...-9])}"},
+    {:name=>"Pt Washington", :status=> "#{status_as_class((feed.xpath('//status')[38]).to_s[8...-9])}"},
     {:name=>"Ronkonkoma", :status=> "#{status_as_class((feed.xpath('//status')[39]).to_s[8...-9])}"},
-    {:name=>"West Hempstead", :status=> "#{status_as_class((feed.xpath('//status')[40]).to_s[8...-9])}"}
+    {:name=>"W Hempstead", :status=> "#{status_as_class((feed.xpath('//status')[40]).to_s[8...-9])}"}
   ]
 
   erb :index
@@ -108,7 +108,7 @@ get '/:service' do
         {:name=>"Port Jefferson", :status=> "#{status_as_class((feed.xpath('//status')[37]).to_s[8...-9])}"},
         {:name=>"Port Washington", :status=> "#{status_as_class((feed.xpath('//status')[38]).to_s[8...-9])}"},
         {:name=>"Ronkonkoma", :status=> "#{status_as_class((feed.xpath('//status')[39]).to_s[8...-9])}"},
-        {:name=>"West Hempstead", :status=> "#{status_as_class((feed.xpath('//status')[40]).to_s[8...-9])}"}
+        {:name=>"W. Hempstead", :status=> "#{status_as_class((feed.xpath('//status')[40]).to_s[8...-9])}"}
       ]
 
     elsif params[:service] == "mnr"
