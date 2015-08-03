@@ -3,9 +3,8 @@ ruby "2.2.2"
 
 gem "httparty"
 gem "nokogiri"
-gem "pg"
+gem "mongoid"
 gem "puma"
-gem "sequel"
 gem "sinatra"
 
 group :development, :test do
