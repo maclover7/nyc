@@ -102,6 +102,7 @@ DEPENDENCIES
   dotenv
   flamegraph
   httparty
+  json
   memory_profiler
   mongoid
   nokogiri

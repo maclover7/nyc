@@ -39,7 +39,7 @@ get "/" do
   erb :index
 end
 
-get '/:service' do
+get '/s/:service' do
   feed = Nokogiri::XML.parse(HTTParty.get("http://web.mta.info/status/serviceStatus.txt"))
   service = params[:service].downcase
 
@@ -71,4 +71,17 @@ get '/:service' do
   else
     render text: "404"
   end
+end
+
+get '/status.json' do
+  content_type :json
+  feed = Nokogiri::XML.parse(HTTParty.get("http://web.mta.info/status/serviceStatus.txt"))
+
+  @subway_statuses = Line.where(service_id: Service.find_by(name: "nyct")._id).collect do |lines|
+    lines.name.split(//).map do |line|
+      line_status(line, lines.name, feed)
+    end
+  end.flatten
+
+  {:nyct_lines => @subway_statuses}.to_json
 end
