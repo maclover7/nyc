@@ -2,8 +2,17 @@ require "bundler/setup"
 require "sinatra"
 require "nokogiri"
 require "httparty"
-require "pry" if development?
-require "sinatra/reloader" if development?
+
+if development?
+  require "pry"
+  require "sinatra/reloader"
+  require 'rack-mini-profiler'
+  require 'flamegraph'
+  require 'stackprof'
+  require 'memory_profiler'
+  use Rack::MiniProfiler
+  Rack::MiniProfiler.config.position = 'right'
+end
 
 Dir.glob(File.join("helpers", "**", "*.rb")).each do |helper|
   require_relative helper
@@ -38,7 +47,7 @@ get '/:service' do
     if service == "subway"
       @service_heading = service.capitalize
       @service_prefix = "nyct"
-      @subway_statuses = Line.where(service_id: Service.find_by(name: "nyct")._id).collect do |lines|
+      @custom_statuses = Line.where(service_id: Service.find_by(name: "nyct")._id).collect do |lines|
         lines.name.split(//).map do |line|
           line_status(line, lines.name, feed)
         end

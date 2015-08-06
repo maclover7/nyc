@@ -14,4 +14,8 @@ group :development, :test do
   gem "rspec"
   gem "rack-test"
   gem "pry"
+  gem "rack-mini-profiler"
+  gem 'flamegraph'
+  gem 'stackprof'
+  gem 'memory_profiler'
 end
