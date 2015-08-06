@@ -2,6 +2,7 @@ require "bundler/setup"
 require "sinatra"
 require "nokogiri"
 require "httparty"
+require "json"
 
 if development?
   require "pry"
