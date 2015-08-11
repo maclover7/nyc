@@ -7,6 +7,7 @@ gem "nokogiri"
 gem "mongoid"
 gem "puma"
 gem "sinatra"
+gem "mongoid-cached-json"
 
 group :development, :test do
   gem "rake"
