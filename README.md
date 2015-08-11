@@ -1,12 +1,11 @@
-# Nyc
-
-TODO: Project description.
+# NYC
 
 ## Getting Started
 
+Make sure you have MongoDB installed!
+
 ```
 bundle install
-psql | CREATE DATABASE nyc_development
 rake db:setup
 ```
 
@@ -15,24 +14,6 @@ rake db:setup
 ```
 rackup
 ```
-
-## Notes / Use
-
-## Contributing
-
-### Issues / Roadmap
-
-Use GitHub issues for reporting bug and feature requests.
-
-### Patches / Pull Requests
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don’t break it in a future version
-  unintentionally.
-* Commit, do not mess with Rakefile, version, or history (if you want to have
-  your own version, that is fine but bump version in a commit by itself I can
-  ignore when I pull).
-* Send me a pull request. Bonus points for topic branches.
 
 ## License
 (The MIT License)
