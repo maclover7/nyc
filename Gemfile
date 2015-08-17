@@ -5,9 +5,10 @@ gem "httparty"
 gem "json"
 gem "nokogiri"
 gem "mongoid"
-gem "puma"
-gem "sinatra"
 gem "mongoid-cached-json"
+gem "puma"
+gem 'rufus-scheduler'
+gem "sinatra"
 
 group :development, :test do
   gem "rake"

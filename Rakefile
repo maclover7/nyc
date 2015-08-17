@@ -1,6 +1,8 @@
 require "rake/testtask"
 require "pry"
 require 'mongoid'
+require 'nokogiri'
+require 'httparty'
 require_relative File.join("db/models.rb")
 
 # Import any external rake tasks
@@ -58,6 +60,13 @@ namespace :db do
       Line.create(name: "Ronkonkoma", query: "status_as_class((feed.xpath('//status')[39]).to_s[8...-9])", status: "a", service_id: lirr)
       Line.create(name: "W Hempstead", query: "status_as_class((feed.xpath('//status')[40]).to_s[8...-9])", status: "a", service_id: lirr)
     end
+
+    unless Feed.where(payload: !nil).any?
+      puts "Creating MTA Feed object in database"
+      mta_feed = HTTParty.get("http://web.mta.info/status/serviceStatus.txt")
+      Feed.create(payload: mta_feed, fetched_at: Time.now)
+    end
+
     puts "Done!"
   end
 end

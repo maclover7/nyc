@@ -24,9 +24,11 @@ require 'mongoid'
 require_relative File.join("db/models.rb")
 Mongoid.load!("db/mongoid.yml", ENV["RACK_ENV"])
 
-get "/" do
-  feed = Nokogiri::XML.parse(HTTParty.get("http://web.mta.info/status/serviceStatus.txt"))
+def feed
+  @feed ||= Nokogiri::XML.parse(Feed.last.payload)
+end
 
+get "/" do
   @subway_statuses = Line.where(service_id: Service.find_by(name: "nyct")._id).collect do |lines|
     lines.name.split(//).map do |line|
       line_status(line, lines.name, feed)

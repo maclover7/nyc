@@ -1,5 +1,11 @@
 require "mongoid-cached-json"
 
+class Feed
+  include Mongoid::Document
+  field :payload, type: String
+  field :fetched_at, type: DateTime
+end
+
 class Line
   include Mongoid::Document
   include Mongoid::CachedJson
